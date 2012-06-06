@@ -5,7 +5,7 @@ require 'GameBoard'
 class GameBoardTest < Test::Unit::TestCase
   def setup
     @gb1 = GameBoard.new
-    @gb1.populate("./seed.txt")
+    @gb1.populate("0 1 0 0 0\n1 0 0 1 1\n1 1 0 0 1\n0 1 0 0 0\n1 0 0 0 1\n")
   end
 
   def test_board_size
@@ -13,10 +13,6 @@ class GameBoardTest < Test::Unit::TestCase
     assert_equal(5, gb1.size)
     gb2 = GameBoard.new(10)
     assert_equal(10, gb2.size)
-  end
-  
-  def test_init_board_with_file
-    assert_equal("0 1 0 0 0\n1 0 0 1 1\n1 1 0 0 1\n0 1 0 0 0\n1 0 0 0 1\n", @gb1.to_s)
   end
 
   def test_cell_addressable
